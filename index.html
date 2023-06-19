@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/terminal.css">
+</head>
+<body onload="writeText();">
+
+    <div class=fakeMenu>
+        <div class="fakeButtons fakeClose"></div>
+        <div class="fakeButtons fakeMinimize"></div>
+        <div class="fakeButtons fakeZoom"></div>
+        </div>
+        <div class="fakeScreen">
+        <p class="line1">$ luke@DESKTOP-Q6H2L21<span class="cursor1">_</span></p>
+        <p class="line4">><span id="text"></span><span class="cursor4">_</span></p>
+    </div>
+
+    <script>
+        const textContainer = document.getElementById('text');
+        const text = " dotnet run";
+
+        let index = 0;
+
+        function writeText() {
+            textContainer.innerHTML = text.slice(0, index);
+            index++;
+
+            if (index > text.length) {
+                index = 0;
+            }
+            else {
+                setTimeout(writeText, 100);
+            }
+
+        }      
+        
+        function timeOut() {
+            window.location.replace("/home")
+        }
+
+        setTimeout(timeOut, 6000)
+    </script>
+</body>
+</html>
